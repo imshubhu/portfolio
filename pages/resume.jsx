@@ -49,7 +49,7 @@ const resume = () => {
           </div>
         </div>
         <p>
-          I'm an enthusiastic, responsible, and hard-working person. Being worked on different projects
+          I&#39;m an enthusiastic, responsible, and hard-working person. Being worked on different projects
           helped me to adapt to the changes quickly and made me a mature team worker. I am able to work
           well both in team environment as well as using my own initiative. I am able to work well underline
           pressure and adhere to strict deadlines.
