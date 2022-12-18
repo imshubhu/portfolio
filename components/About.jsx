@@ -13,7 +13,7 @@ const About = () => {
           </p>
           <h2 className='py-4'>Who I Am</h2>
           <p className='py-2 text-gray-600'>
-            I&#39;m a full stack developer with a passion for creating innovative solutions. I understand the complexities of developing applications, from the back-end to the front-end. My experience includes working on various technologies, such as JavaScript, Node.js, React.js, Angular, Nextjs, and HTML/CSS. I&#39;m also skilled in docker, server configuration, databases, and problem solving. I strive to always stay up-to-date with the latest trends and technologies. In my free time, I'm passionate about coding projects and tinkering with new programming languages. I believe that being a great developer is not using one
+            I&#39;m a full stack developer with a passion for creating innovative solutions. I understand the complexities of developing applications, from the back-end to the front-end. My experience includes working on various technologies, such as JavaScript, Node.js, React.js, Angular, Nextjs, and HTML/CSS. I&#39;m also skilled in docker, server configuration, databases, and problem solving. I strive to always stay up-to-date with the latest trends and technologies. In my free time, I&#39;m passionate about coding projects and tinkering with new programming languages. I believe that being a great developer is not using one
               specific language, but choosing the best tool for the job.
           </p>
           <p className='py-2 text-gray-600'>
