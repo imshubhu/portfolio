@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
-import propertyImg from '../public/assets/projects/property.jpg';
+import twitterImg from '../public/assets/projects/angular-twitter.jpg';
 import { RiRadioButtonFill } from 'react-icons/ri';
 import Link from 'next/link';
 
-const property = () => {
+const twitter = () => {
   return (
     <div className='w-full'>
       <div className='w-screen h-[50vh] relative'>
@@ -13,12 +13,12 @@ const property = () => {
           className='absolute z-1'
           layout='fill'
           objectFit='cover'
-          src={propertyImg}
+          src={twitterImg}
           alt='/'
         />
         <div className='absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] translate-y-[-50%] text-white z-10 p-2'>
-          <h2 className='py-2'>Property Finders</h2>
-          <h3>React JS / Tailwind / Firebase</h3>
+          <h2 className='py-2'>Angular Twitter</h2>
+          <h3>Angular 13 / Rxjs / In-Memory API</h3>
         </div>
       </div>
 
@@ -27,17 +27,19 @@ const property = () => {
           <p>Project</p>
           <h2>Overview</h2>
           <p>
-            This app was built using React JS and is hosted on Firebase. Users
-            are able to search properties based on an Address, City, or ZIP code
-            to retrieve a list of active properties currently for sale. You will
-            be able to view property information as well as the specific
-            location of the property integrated with the Google Maps API. User
-            authentication is available so you can signup and signin to your
-            account with an email address in order to save your favorite
-            properties. This is made possible with Zillow API.
+          This project was created with the following features:
+            <ul>
+            <li> Mobile first css framework. Views for desktop, tablet and mobile devices. </li>
+            <li> Angular 13 typescript framework. </li>
+            <li> Angular Animations. </li>
+            <li> CSS Flex container layouts. </li>
+            <li> Font Awesome Icons. </li>
+            <li> SCSS style sheets. </li>
+            <li> In memory Web Api. </li>
+            </ul>
           </p>
           <a
-            href='https://github.com/fireclint/property-finder'
+            href='https://github.com/imshubhu/angular-twitter'
             target='_blank'
             rel='noreferrer'
           >
@@ -56,22 +58,16 @@ const property = () => {
             <p className='text-center font-bold pb-2'>Technologies</p>
             <div className='grid grid-cols-3 md:grid-cols-1'>
               <p className='text-gray-600 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> React
+                <RiRadioButtonFill className='pr-1' /> Angular
               </p>
               <p className='text-gray-600 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Tailwind
+                <RiRadioButtonFill className='pr-1' /> RXJS
               </p>
               <p className='text-gray-600 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Javascript
+                <RiRadioButtonFill className='pr-1' /> SCSS
               </p>
               <p className='text-gray-600 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Firebase
-              </p>
-              <p className='text-gray-600 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Google API
-              </p>
-              <p className='text-gray-600 py-2 flex items-center'>
-                <RiRadioButtonFill className='pr-1' /> Zillow API
+                <RiRadioButtonFill className='pr-1' /> In Memory Web API
               </p>
             </div>
           </div>
@@ -84,4 +80,4 @@ const property = () => {
   );
 };
 
-export default property;
+export default twitter;
