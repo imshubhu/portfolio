@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* Smooth scroll & antialiasing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+  }
+  
+  canvas {
+    display: block;
+  }
+
+  /* Will be overridden by pointer events */
+.r3f-pick-active {
+  cursor: pointer !important;
+}
