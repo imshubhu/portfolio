@@ -113,21 +113,20 @@ export default function Planet({
       )}
 
       {/* ✅ Glow Effect (only when hovered) */}
-      {hovered && (
+      {/* {hovered && (
         <mesh
           ref={glowMesh}
-          position={[distance, 0, 0]} // Same orbit position
-          scale={[size * 1.1, size * 1.1, size * 1.1]} // Slightly larger than planet
+          position={[distance, 0, 0]} 
+          scale={[size * 1.1, size * 1.1, size * 1.1]}
         >
-          <sphereGeometry args={[size * 1.1, size * 1.1, size * 1.1]} /> {/* Radius 1, scaled by size */}
-          {/* <primitive attach="material" object={glowMaterial} /> */}
+          <sphereGeometry args={[size * 1.1, size * 1.1, size * 1.1]} /> 
           <meshStandardMaterial
             color={glowColor}
             transparent
             blending={THREE.AdditiveBlending}
           />
         </mesh>
-      )}
+      )} */}
 
       {/* ✅ Tooltip */}
       {hovered && (
@@ -150,20 +149,3 @@ export default function Planet({
     </group>
   );
 }
-{/* <mesh ref={planetRef} scale={[1.3, 1.3, 1.3]}>
-                    <Html >
-                        <div className="bg-black bg-opacity-70 text-white px-3 py-1 rounded text-sm border border-cyan-500 animate-pulse">
-                            🚀 Dock to {id}
-                        </div>
-                    </Html>
-                </mesh> */}
-{/* {
-moon.map((mo) => (
-<Moon
-key={mo.name}
-{...mo}
-onHover={onHover}
-onFocus={onFocus}
-/>
-))
-} */}
