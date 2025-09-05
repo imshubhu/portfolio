@@ -20,21 +20,21 @@ const ProjectsModal = () => {
     },
     {
       name: "StackOS",
-      tech: [], // Added for consistency
+      tech: ['React', 'Web3', 'Ethereum'], // Added for consistency
       desc: "Decentralized cloud platform for deploying apps & blockchain nodes.",
       live: '', // Added for consistency
     },
     {
       name: "Manifest E",
-      tech: [], // Added for consistency
+      tech: ['Angular', 'Php'], // Added for consistency
       desc: "Event creation platform with timezone support & poster generation.",
       live: '', // Added for consistency
     },
     {
       name: "Monotype Freelance",
-      tech: [], // Added for consistency
+      tech: ['Vue', 'Node', 'Logger', 'Analytics'], // Added for consistency
       desc: "Improved logging microservices & integrated Adobe Analytics.",
-      live: '', // Added for consistency
+      live: 'https://www.monotype.com/', // Added for consistency
     },
   ];
 

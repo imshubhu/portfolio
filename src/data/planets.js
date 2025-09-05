@@ -7,7 +7,7 @@ const planets = [
         id: 'About',
         name: "Earth",
         size: 3,
-        distance: 60,       // Increased distance
+        distance: 50,       // Increased distance
         texture: "/textures/earth.jpg",
         // orbitalPeriod: 1,
         orbitalPeriod: 1 * rotatePeriod,
@@ -29,7 +29,7 @@ const planets = [
         id: 'Projects',
         name: "Jupiter",
         size: 6,            // Reduced size for better scale
-        distance: 110,       // Adjusted distance
+        distance: 80,       // Adjusted distance
         texture: "/textures/jupiter.jpg",
         // orbitalPeriod: 11.86,
         orbitalPeriod: 11.86 * rotatePeriod,
@@ -60,7 +60,7 @@ const planets = [
         id: 'Skills',
         name: "Saturn",
         size: 5,            // Reduced size
-        distance: 140,       // Adjusted distance
+        distance: 115,       // Adjusted distance
         texture: "/textures/saturn.jpg",
         // orbitalPeriod: 29.46,
         orbitalPeriod: 29.46 * rotatePeriod,
@@ -82,7 +82,7 @@ const planets = [
         id: 'Experience',
         name: "Uranus",
         size: 2.5,          // Slightly larger
-        distance: 180,      // Adjusted distance
+        distance: 140,      // Adjusted distance
         texture: "/textures/uranus.jpg",
         glowColor: '#AFDBF5',
         // orbitalPeriod: 84.01,
@@ -104,7 +104,7 @@ const planets = [
         id: 'Resume',
         name: "Neptune",
         size: 2.4,          // Slightly larger
-        distance: 220,      // Adjusted distance
+        distance: 160,      // Adjusted distance
         texture: "/textures/neptune.jpg",
         glowColor: '#4B70DD',
         // orbitalPeriod: 164.8,

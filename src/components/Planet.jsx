@@ -79,7 +79,12 @@ export default function Planet({
   });
 
   return (
-    <group ref={orbitRef}>
+    <group ref={orbitRef} 
+    onClick={(e) => {
+      e.stopPropagation();
+      onPlanetClick();
+    }}
+    >
       {/* Main Planet */}
       <mesh
         ref={planetRef}
