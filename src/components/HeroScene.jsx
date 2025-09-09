@@ -1,6 +1,6 @@
 // src/components/HeroScene.jsx
 import { Canvas } from '@react-three/fiber';
-import { Environment, OrbitControls, Preload, Stars } from '@react-three/drei';
+import { Environment, OrbitControls, Stars } from '@react-three/drei';
 import SolarSystem from './SolarSystem';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 

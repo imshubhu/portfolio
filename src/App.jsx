@@ -1,14 +1,15 @@
-// src/App.jsx
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import HeroScene from './components/HeroScene';
 import ModalDock from './components/ModalDock';
 import Footer from './components/Footer';
-import gsap from 'gsap';
+import StarfieldWarp from './components/StarfieldWarp';
 
 function App() {
   const [activeSection, setActiveSection] = useState(null);
+  const [showWarp, setShowWarp] = useState(false);
+  const sectionToOpen = useRef(null); // temp storage
 
-  // In App.jsx or HeroScene.jsx
+  // cheat-code listener (unchanged)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'l') localStorage.__code_astronaut = 'l';
@@ -27,77 +28,15 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  function closeModal(){
-        // Create a video element for the warp effect
+  function handlePlanetClick(value) {
+    sectionToOpen.current = value; // store clicked section
+    setShowWarp(true);             // start warp
+  }
 
-        console.log('active', activeSection)
-        let video_name = 'space-ship-leaving';
-
-        switch (activeSection) {
-          case 'Projects':
-            video_name = 'space-ship-leaving-jupiter'
-            break;
-          case 'About':
-            video_name = 'space-ship-leaving-earth'
-            break;
-          case 'Skills':
-            video_name = 'space-ship-leaving-saturn'
-            break;
-          case 'Experience':
-            video_name = 'space-ship-leaving-uranus'
-            break;
-          case 'Resume':
-            video_name = 'space-ship-leaving-neptune'
-            break;
-        
-          default:
-            break;
-        }
-
-        const warpVideo = document.createElement('video');
-        warpVideo.src = `/videos/${video_name}.mp4`; // Assuming a warp video path
-        warpVideo.muted = true;
-        warpVideo.autoplay = false;
-        warpVideo.loop = false;
-        warpVideo.playsInline = true; // Important for mobile Safari
-      
-        // Fullscreen & responsive styling
-        warpVideo.style.position = 'fixed';
-        warpVideo.style.top = '0';
-        warpVideo.style.left = '0';
-        warpVideo.style.width = '100%';
-        warpVideo.style.height = '100%';
-        warpVideo.style.objectFit = 'cover';
-        warpVideo.style.zIndex = '9998';
-        warpVideo.style.opacity = '0';
-        warpVideo.style.pointerEvents = 'none';
-    
-        document.body.appendChild(warpVideo);
-    
-        // GSAP animation to show the video
-        gsap.to(warpVideo, {
-          opacity: 1,
-          duration: 0.5,
-          ease: 'power2.out',
-          onStart: () => {
-            warpVideo.play();
-          },
-          onComplete: () => {
-            // This part would typically be coordinated with the camera animation's onComplete
-            // For now, we'll just fade it out after a short delay.
-            setActiveSection(null)
-            gsap.to(warpVideo, {
-              opacity: 0,
-              delay: 1.5, // Keep video visible for 1.5 seconds
-              duration: 0.5,
-              onComplete: () => {
-                warpVideo.pause();
-                warpVideo.currentTime = 0;
-                document.body.removeChild(warpVideo);
-              }
-            });
-          }
-        });
+  function closeModal() {
+    setActiveSection(null);
+    sectionToOpen.current = null;
+    setShowWarp(true)
   }
 
   return (
@@ -107,11 +46,25 @@ function App() {
       <div className="stars"></div>
 
       {/* Main Scene */}
-      <HeroScene onPlanetClick={setActiveSection} />
+      {
+        !showWarp &&
+        <HeroScene onPlanetClick={handlePlanetClick} />
+      }
 
-      {/* Docked Modal */}
+      {/* Modal only after warp finishes */}
       {activeSection && (
-        <ModalDock section={activeSection} onClose={() => closeModal()} />
+        <ModalDock section={activeSection} onClose={closeModal} />
+      )}
+
+      {/* Warp effect overlay */}
+      {showWarp && (
+        <StarfieldWarp
+          section={sectionToOpen.current}
+          onFinish={() => {
+            setActiveSection(sectionToOpen.current); // open modal after warp ends
+            setShowWarp(false);
+          }}
+        />
       )}
 
       <Footer />
