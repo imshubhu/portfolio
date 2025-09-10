@@ -80,7 +80,7 @@ export default function Planet({
 
   return (
     <group ref={orbitRef} 
-    onClick={(e) => {
+    onPointerDown={(e) => {
       e.stopPropagation();
       onPlanetClick();
     }}
@@ -91,7 +91,7 @@ export default function Planet({
         name={name}
         position={[distance, 0, 0]}
         rotation-x={Math.PI / 1}
-        onClick={(e) => {
+        onPointerDown={(e) => {
           e.stopPropagation();
           onPlanetClick();
         }}

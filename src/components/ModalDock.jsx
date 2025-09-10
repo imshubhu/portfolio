@@ -1,5 +1,5 @@
 // src/components/ModalDock.jsx
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import AboutModal from '../modals/AboutModal';
 import ProjectsModal from '../modals/ProjectsModal';
 import SkillsModal from '../modals/SkillsModal';
@@ -42,7 +42,7 @@ const ModalDock = ({ section, onClose }) => {
         >
           {/* === Scan Line Animation (Top to Bottom) === */}
           <motion.div
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 pointer-events-auto"
             initial={{ y: '-100%' }}
             animate={{ y: '100%' }}
             transition={{ duration: 1.5, repeat: 1, repeatType: 'reverse', ease: 'linear' }}

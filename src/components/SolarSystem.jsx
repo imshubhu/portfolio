@@ -29,11 +29,12 @@ export default function SolarSystem({ onPlanetClick }) {
 
 function Sun() {
   const sun_texture = useTexture('/textures/sun.jpg')
+  const segments = window.innerWidth < 768 ? 32 : 128;
   return (
     <>
       {/* Sun body */}
       <mesh name="Sun" position={[0, 0, 0]} >
-        <sphereGeometry args={[10, 128, 128]} />
+        <sphereGeometry args={[10, segments, segments]} />
         <meshStandardMaterial 
           map={sun_texture} 
           emissive="#ffaa00"
@@ -44,7 +45,7 @@ function Sun() {
       
       {/* Sun glow */}
       <mesh position={[0, 0, 0]}>
-        <sphereGeometry args={[12, 128, 128]} />
+        <sphereGeometry args={[12, segments, segments]} />
         <meshStandardMaterial 
           color="#ffff00"
           transparent

@@ -65,7 +65,7 @@ export default function StarfieldWarp({ onFinish, section }) {
     return (
         <div
             ref={containerRef}
-            className="fixed inset-0 z-[9999] bg-black pointer-events-none opacity-0"
+            className="fixed inset-0 z-[9999] bg-black pointer-events-auto opacity-0"
         >
             <Canvas camera={{ position: [0, 0, 200], fov: 75 }}>
                 <ambientLight intensity={2.5} />
@@ -73,7 +73,7 @@ export default function StarfieldWarp({ onFinish, section }) {
                 <Stars
                     radius={100}
                     depth={50}
-                    count={5000}
+                    count={window.innerWidth < 768 ? 1000 : 5000}
                     factor={4}
                     saturation={0}
                     fade
@@ -99,11 +99,12 @@ const Planet = memo(function Planet({ section }) {
         case 'Resume': section_image = '/textures/neptune.jpg'; break;
     }
     const sun_texture = useTexture(section_image);
+    const segments = window.innerWidth < 768 ? 32 : 180;
 
     return (
         <>
             <mesh name="Sun" position={[0, 0, 0]} >
-                <sphereGeometry args={[10, 180, 180]} />
+                <sphereGeometry args={[10, segments, segments]} />
                 <meshStandardMaterial
                     map={sun_texture}
                     emissive={section ? '' : "#ffaa00"}
@@ -114,7 +115,7 @@ const Planet = memo(function Planet({ section }) {
             {
                 !section &&
                 <mesh position={[0, 0, 0]}>
-                    <sphereGeometry args={[12, 180, 180]} />
+                    <sphereGeometry args={[12, segments, segments]} />
                     <meshStandardMaterial
                         color="#ffff00"
                         transparent

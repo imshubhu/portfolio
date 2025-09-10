@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls, Stars } from '@react-three/drei';
 import SolarSystem from './SolarSystem';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
+import * as THREE from 'three';
 
 const HeroScene = ({ onPlanetClick }) => {
     return (
@@ -24,7 +25,7 @@ const HeroScene = ({ onPlanetClick }) => {
                 <Stars
                     radius={100}
                     depth={50}
-                    count={5000}
+                    count={window.innerWidth < 768 ? 1000 : 5000}
                     factor={4}
                     saturation={0}
                     fade
@@ -40,24 +41,31 @@ const HeroScene = ({ onPlanetClick }) => {
                 />
 
                 <OrbitControls
-                    enableZoom
-                    enablePan
-                    minDistance={5}
-                    maxDistance={500}
-                    autoRotate={true}
-                    autoRotateSpeed={0.5}
+                    enableZoom={true}
+                    enablePan={false}
+                    enableRotate={true}
+                    zoomSpeed={0.6}
+                    rotateSpeed={0.8}
+                    touches={{
+                        ONE: THREE.TOUCH.ROTATE,
+                        TWO: THREE.TOUCH.DOLLY_PAN,
+                    }}
                 />
 
-                <EffectComposer>
-                    <Bloom intensity={0.8} kernelSize={3} />
-                </EffectComposer>
+
+                {window.innerWidth > 768 && (
+                    <EffectComposer>
+                        <Bloom intensity={0.6} />
+                    </EffectComposer>
+                )}
+
 
                 {/* Preload textures */}
                 {/* <Preload all /> */}
             </Canvas>
 
             {/* UI Overlay (Title) */}
-            <div className="absolute w-full top-1/9 md:top-1/7 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10 pointer-events-none">
+            <div className="absolute w-full top-1/9 md:top-1/7 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10 pointer-events-auto">
                 <h1 className="text-2xl md:text-6xl font-bold text-cyan-300 mb-2 drop-shadow-lg">
                     Captain Shubham Lohar
                 </h1>

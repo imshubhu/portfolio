@@ -18,7 +18,7 @@ function App() {
       else if (localStorage.__code_astronaut === 'lau' && e.key === 'n') localStorage.__code_astronaut = 'laun';
       else if (localStorage.__code_astronaut === 'laun' && e.key === 'c') localStorage.__code_astronaut = 'launch';
       else if (localStorage.__code_astronaut === 'launch' && e.key === 'h') {
-        alert('🚀 UFO Abducted Your Resume! Secret project unlocked: https://github.com/alex/cosmic-cv');
+        alert('🚀 UFO Abducted Your Resume! Secret project unlocked: https://github.com/imshubhu');
         localStorage.removeItem('__code_astronaut');
       } else {
         localStorage.removeItem('__code_astronaut');
@@ -40,7 +40,7 @@ function App() {
   }
 
   return (
-    <div className="overflow-hidden bg-black text-white relative w-full h-screen">
+    <div className="overflow-hidden bg-black text-white relative w-full min-h-screen">
       {/* Background Stars */}
       <div className="absolute inset-0 bg-gradient-to-b from-indigo-950 via-black to-black"></div>
       <div className="stars"></div>
