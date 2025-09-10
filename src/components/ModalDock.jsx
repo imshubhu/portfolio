@@ -1,5 +1,5 @@
 // src/components/ModalDock.jsx
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import AboutModal from '../modals/AboutModal';
 import ProjectsModal from '../modals/ProjectsModal';
 import SkillsModal from '../modals/SkillsModal';
