@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import HeroScene from './components/HeroScene';
 import ModalDock from './components/ModalDock';
 import Footer from './components/Footer';
@@ -8,25 +8,6 @@ function App() {
   const [activeSection, setActiveSection] = useState(null);
   const [showWarp, setShowWarp] = useState(false);
   const sectionToOpen = useRef(null); // temp storage
-
-  // cheat-code listener (unchanged)
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'l') localStorage.__code_astronaut = 'l';
-      else if (localStorage.__code_astronaut === 'l' && e.key === 'a') localStorage.__code_astronaut = 'la';
-      else if (localStorage.__code_astronaut === 'la' && e.key === 'u') localStorage.__code_astronaut = 'lau';
-      else if (localStorage.__code_astronaut === 'lau' && e.key === 'n') localStorage.__code_astronaut = 'laun';
-      else if (localStorage.__code_astronaut === 'laun' && e.key === 'c') localStorage.__code_astronaut = 'launch';
-      else if (localStorage.__code_astronaut === 'launch' && e.key === 'h') {
-        alert('🚀 UFO Abducted Your Resume! Secret project unlocked: https://github.com/imshubhu');
-        localStorage.removeItem('__code_astronaut');
-      } else {
-        localStorage.removeItem('__code_astronaut');
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
 
   function handlePlanetClick(value) {
     sectionToOpen.current = value; // store clicked section
@@ -53,7 +34,7 @@ function App() {
 
       {/* Modal only after warp finishes */}
       {activeSection && (
-        <ModalDock section={activeSection} onClose={closeModal} />
+        <ModalDock section={activeSection} onClose={closeModal} onChange={setActiveSection}  />
       )}
 
       {/* Warp effect overlay */}

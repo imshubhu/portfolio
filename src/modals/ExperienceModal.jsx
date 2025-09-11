@@ -33,7 +33,6 @@ const ExperienceModal = () => {
         <div className="space-y-5">
           {jobs.map((job, i) => (
             <div key={i} className=" border-cyan-500 !pl-5 relative !mb-4">
-              {/* <div className="absolute -left-2 top-0 w-4 h-4 bg-cyan-400 rounded-full animate-pulse"></div> */}
               <div className="flex items-center gap-2 !mb-1">
                 <span className="text-2xl">{job.logo}</span>
                 <h4 className="font-bold text-lg">{job.company}</h4>
@@ -50,7 +49,6 @@ const ExperienceModal = () => {
                     ))
                 }
               </ul>
-              {/* <p className="text-gray-300 mt-2 text-sm">{job.desc}</p> */}
             </div>
           ))}
         </div>

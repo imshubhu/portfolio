@@ -9,7 +9,6 @@ import planets from '../data/planets';
 export default function SolarSystem({ onPlanetClick }) {
   // Handle planet click
   const handlePlanetClick = (planet) => {
-    console.log('planet', planet)
     onPlanetClick(planet.id);
   };
 

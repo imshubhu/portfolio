@@ -13,7 +13,6 @@ export default function Planet({
   bumpMap,
   orbitalPeriod,
   rotationPeriod,
-  moon = [],
   onPlanetClick,
   glowColor = '#ffffff',
 }) {
@@ -116,22 +115,6 @@ export default function Planet({
           />
         </mesh>
       )}
-
-      {/* ✅ Glow Effect (only when hovered) */}
-      {/* {hovered && (
-        <mesh
-          ref={glowMesh}
-          position={[distance, 0, 0]} 
-          scale={[size * 1.1, size * 1.1, size * 1.1]}
-        >
-          <sphereGeometry args={[size * 1.1, size * 1.1, size * 1.1]} /> 
-          <meshStandardMaterial
-            color={glowColor}
-            transparent
-            blending={THREE.AdditiveBlending}
-          />
-        </mesh>
-      )} */}
 
       {/* ✅ Tooltip */}
       {hovered && (

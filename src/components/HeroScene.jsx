@@ -12,10 +12,10 @@ const HeroScene = ({ onPlanetClick }) => {
             {/* Three.js Canvas */}
             <Canvas
                 camera={{
-                    position: [0, 50, 150],
+                    position: [0, 50, window.innerWidth > 768 ? 150 : 350],
                     fov: 60,
                     near: 1,
-                    far: 1000
+                    far: 500
                 }}
             >
                 <color attach="background" args={['#000000']} />
@@ -59,9 +59,6 @@ const HeroScene = ({ onPlanetClick }) => {
                     </EffectComposer>
                 )}
 
-
-                {/* Preload textures */}
-                {/* <Preload all /> */}
             </Canvas>
 
             {/* UI Overlay (Title) */}

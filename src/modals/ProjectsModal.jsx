@@ -22,13 +22,13 @@ const ProjectsModal = () => {
       name: "StackOS",
       tech: ['React', 'Web3', 'Ethereum'], // Added for consistency
       desc: "Decentralized cloud platform for deploying apps & blockchain nodes.",
-      live: '', // Added for consistency
+      // live: '', // Added for consistency
     },
     {
       name: "Manifest E",
       tech: ['Angular', 'Php'], // Added for consistency
       desc: "Event creation platform with timezone support & poster generation.",
-      live: '', // Added for consistency
+      // live: '', // Added for consistency
     },
     {
       name: "Monotype Freelance",
@@ -69,16 +69,19 @@ const ProjectsModal = () => {
                 </span>
               ))}
             </div>
-            <div className="flex gap-2">
-              <a
-                href={proj.live}
-                target="_blank"
-                rel="noreferrer"
-                className="text-xs !px-3 !py-1 bg-purple-700 hover:bg-purple-600 rounded"
-              >
-                🌐 Live Demo
-              </a>
-            </div>
+            {
+              proj.live && 
+              <div className="flex gap-2">
+                <a
+                  href={proj.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs !px-3 !py-1 bg-purple-700 hover:bg-purple-600 rounded"
+                >
+                  🌐 Live Demo
+                </a>
+              </div>
+            }
           </motion.div>
         ))}
       </div>
