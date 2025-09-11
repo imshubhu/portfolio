@@ -43,7 +43,8 @@ const ProjectsModal = () => {
       <h3 className="text-2xl font-bold text-cyan-300 !mb-1">🛸 Project Probes</h3>
       <p className="text-gray-400 text-sm !mb-5">Launch a probe to view details.</p>
 
-      <div className="!space-y-4 !overflow-auto h-[50vh]">
+      {/* <div className="!space-y-4 !overflow-auto h-[50vh]"> */}
+      <div className="!space-y-4">
         {projects.map((proj, i) => (
           <motion.div
             key={i}

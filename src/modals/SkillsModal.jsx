@@ -31,7 +31,7 @@ const SkillsModal = () => {
       <h3 className="text-2xl font-bold text-cyan-300 !mb-1">🔧 Skill Rings</h3>
       <p className="text-gray-400 text-sm mb-5">Rotate the ring to scan a technology.</p>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 overflow-auto h-[60vh]">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 overflow-auto h-[60vh]">
         {skills.map((skill) => (
           <div
             key={skill.name}

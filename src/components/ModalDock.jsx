@@ -1,3 +1,4 @@
+// Components/ModalDock.jsx
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -149,7 +150,7 @@ const ModalDock = ({ section, onClose, onChange }) => {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 text-gray-200 !p-5">
+          <div id='model-content' className="relative z-10 text-gray-200 !p-5 overflow-y-auto max-h-[calc(90vh - 9.5rem)]">
             {renderContent()}
           </div>
         </motion.div>
