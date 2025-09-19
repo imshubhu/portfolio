@@ -13,10 +13,22 @@ const ProjectsModal = () => {
       live: 'https://rivio.io',
     },
     {
+      name: 'AI Powered OSNIT Toolkit for Journalist(Personal)',
+      tech: ['Next.js', 'Node.js', 'Gemini', 'Huggingface', 'Puppeter'],
+      desc: 'Tools for journalist.',
+      live: 'https://ai-powered-osnit-toolkit-forjournal.vercel.app/',
+    },
+    {
+      name: 'AI Memory Journal(Personal)',
+      tech: ['React', 'Node.js', 'Gemini', 'MongoDB', 'Auth0'],
+      desc: 'Tools for journalist.',
+      live: 'https://ai-memory-journal-frontend.vercel.app/',
+    },
+    {
       name: 'Iot-Pot (SaaS)',
       tech: ['Next.js', 'NestJS', 'Postgres', 'MQTT', 'RabbitMQ'],
       desc: 'IoT real-time analytics & alert system.',
-      live: 'app.iotpot.app',
+      live: 'https://app.iotpot.app',
     },
     {
       name: "StackOS",
@@ -25,16 +37,16 @@ const ProjectsModal = () => {
       // live: '', // Added for consistency
     },
     {
-      name: "Manifest E",
-      tech: ['Angular', 'Php'], // Added for consistency
-      desc: "Event creation platform with timezone support & poster generation.",
-      // live: '', // Added for consistency
-    },
-    {
       name: "Monotype Freelance",
       tech: ['Vue', 'Node', 'Logger', 'Analytics'], // Added for consistency
       desc: "Improved logging microservices & integrated Adobe Analytics.",
       live: 'https://www.monotype.com/', // Added for consistency
+    },
+    {
+      name: "Manifest E",
+      tech: ['Angular', 'Php'], // Added for consistency
+      desc: "Event creation platform with timezone support & poster generation.",
+      // live: '', // Added for consistency
     },
   ];
 
