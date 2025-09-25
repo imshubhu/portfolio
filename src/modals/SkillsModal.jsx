@@ -2,28 +2,28 @@
 import { useState } from 'react';
 
 const SkillsModal = () => {
-  const [selected, setSelected] = useState(null);
+  const [hovered, setHovered] = useState(null);
 
   const skills = [
-    { name: 'React', level: 95, color: '#61DAFB', icon: '⚛️' },
-    { name: 'Next.js', level: 90, color: '#000000', icon: '▲' },
-    { name: 'Angular', level: 80, color: '#DD0031', icon: '🅰️' },
-    { name: 'Redux', level: 85, color: '#764ABC', icon: 'Ⓡ' },
-    { name: 'Node.js', level: 92, color: '#68A063', icon: '🟢' },
-    { name: 'NestJS', level: 88, color: '#E0234E', icon: '🦅' },
-    { name: 'Express.js', level: 90, color: '#000000', icon: '⚡' },
-    { name: 'MongoDB', level: 85, color: '#47B84D', icon: '🍃' },
-    { name: 'PostgreSQL', level: 80, color: '#336791', icon: '🐘' },
-    { name: 'MySQL', level: 78, color: '#4479A1', icon: '🐬' },
-    { name: 'Redis', level: 75, color: '#DC382D', icon: '🔴' },
-    { name: 'Docker', level: 82, color: '#2496ED', icon: '🐳' },
-    { name: 'AWS', level: 70, color: '#FF9900', icon: '☁️' },
-    { name: 'Firebase', level: 70, color: '#FFCA28', icon: '🔥' },
-    { name: 'CI/CD', level: 75, color: '#007ACC', icon: '⚙️' },
-    { name: 'Jest', level: 80, color: '#C21325', icon: '🃏' },
-    { name: 'WebSockets', level: 85, color: '#000000', icon: '💬' },
-    { name: 'MQTT', level: 70, color: '#66BB6A', icon: '📡' },
-    { name: 'RabbitMQ', level: 70, color: '#FF6600', icon: '🐇' },
+    { name: 'React', color: '#61DAFB', icon: '⚛️' },
+    { name: 'Next.js', color: '#000000', icon: '▲' },
+    { name: 'Angular', color: '#DD0031', icon: '🅰️' },
+    { name: 'Redux', color: '#764ABC', icon: 'Ⓡ' },
+    { name: 'Node.js', color: '#68A063', icon: '🟢' },
+    { name: 'NestJS', color: '#E0234E', icon: '🦅' },
+    { name: 'Express.js', color: '#000000', icon: '⚡' },
+    { name: 'MongoDB', color: '#47B84D', icon: '🍃' },
+    { name: 'PostgreSQL', color: '#336791', icon: '🐘' },
+    { name: 'MySQL', color: '#4479A1', icon: '🐬' },
+    { name: 'Redis', color: '#DC382D', icon: '🔴' },
+    { name: 'Docker', color: '#2496ED', icon: '🐳' },
+    { name: 'AWS', color: '#FF9900', icon: '☁️' },
+    { name: 'Firebase', color: '#FFCA28', icon: '🔥' },
+    { name: 'CI/CD', color: '#007ACC', icon: '⚙️' },
+    { name: 'Jest', color: '#C21325', icon: '🃏' },
+    { name: 'WebSockets', color: '#000000', icon: '💬' },
+    { name: 'MQTT', color: '#66BB6A', icon: '📡' },
+    { name: 'RabbitMQ', color: '#FF6600', icon: '🐇' },
   ];
 
   return (
@@ -35,30 +35,36 @@ const SkillsModal = () => {
         {skills.map((skill) => (
           <div
             key={skill.name}
-            className={`!p-3 rounded border transition-all cursor-pointer ${
-              selected === skill.name
-                ? 'bg-cyan-950 border-cyan-500'
-                : 'border-gray-600 hover:border-gray-400'
-            }`}
-            onClick={() => setSelected(skill.name)}
+            className={`relative overflow-hidden !p-3 rounded border transition-all cursor-pointer select-none h-20 md:h-fit`}
+            onMouseEnter={() => setHovered(skill.name)}
+            onMouseLeave={() => setHovered(null)}
+            onTouchStart={() => setHovered(skill.name)}
+            onTouchEnd={() => setHovered(null)}
+            style={{
+              backgroundColor: hovered === skill.name ? skill.color : 'transparent',
+            }}
           >
-            <div className="flex items-center gap-2 !mb-2">
-              <span>{skill.icon}</span>
+            {hovered === skill.name && (
+              <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+            )}
+            <div className="flex items-center justify-center !mb-2 h-16">
+              <span
+                className="transition-all duration-300 ease-out"
+                style={{
+                  fontSize: hovered === skill.name ? '2.25rem' : '1.25rem',
+                  transform: hovered === skill.name ? 'scale(1.15)' : 'scale(1)',
+                }}
+              >
+                {skill.icon}
+              </span>
+            </div>
+            <div
+              className={`text-center transition-opacity duration-200 ${
+                hovered === skill.name ? 'opacity-0' : 'opacity-100'
+              }`}
+            >
               <strong>{skill.name}</strong>
             </div>
-
-            {/* Energy Bar */}
-            {/* <div className="w-full bg-gray-700 rounded-full !h-2 !mb-1">
-              <motion.div
-                className="h-2 rounded-full"
-                style={{ width: selected === skill.name ? `${skill.level}%` : '0%' }}
-                animate={{ width: `${skill.level}%` }}
-                transition={{ duration: 1 }}
-                // style={{ backgroundColor: skill.color }}
-              />
-            </div>
-
-            <span className="text-xs text-gray-400">{skill.level}% Proficiency</span> */}
           </div>
         ))}
       </div>

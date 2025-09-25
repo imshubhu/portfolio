@@ -15,6 +15,7 @@ export default function Planet({
   rotationPeriod,
   onPlanetClick,
   glowColor = '#ffffff',
+  paused = false,
 }) {
   const planetRef = useRef();
   const orbitRef = useRef();
@@ -60,11 +61,13 @@ export default function Planet({
 
   // Animation loop
   useFrame((state, delta) => {
-    if (orbitRef.current) {
-      orbitRef.current.rotation.y += delta / orbitalPeriod;
-    }
-    if (planetRef.current) {
-      planetRef.current.rotation.y += delta / rotationPeriod;
+    if (!paused) {
+      if (orbitRef.current) {
+        orbitRef.current.rotation.y += delta / orbitalPeriod;
+      }
+      if (planetRef.current) {
+        planetRef.current.rotation.y += delta / rotationPeriod;
+      }
     }
 
     // ✅ Pulse glow only if hovered and glowMesh exists

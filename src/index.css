@@ -54,3 +54,21 @@
 #model-content {
   max-height: calc(90vh - 9.5rem);
 }
+
+/* Safe-area and mobile tweaks */
+@supports (padding: max(0px)) {
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
+  }
+  .safe-top {
+    padding-top: max(env(safe-area-inset-top), 0.75rem);
+  }
+}
+
+/* Prevent background scroll jump on mobile when modal open */
+@media (max-width: 640px) {
+  html, body, #root {
+    overscroll-behavior-y: contain;
+    touch-action: manipulation;
+  }
+}

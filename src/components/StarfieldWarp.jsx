@@ -67,7 +67,7 @@ export default function StarfieldWarp({ onFinish, section }) {
             ref={containerRef}
             className="fixed inset-0 z-[9999] bg-black pointer-events-auto opacity-0"
         >
-            <Canvas camera={{ position: [0, 0, 200], fov: 75 }}>
+            <Canvas dpr={[1, 1.75]} camera={{ position: [0, 0, 200], fov: 75 }}>
                 <ambientLight intensity={2.5} />
                 <Planet section={section} />
                 <Stars

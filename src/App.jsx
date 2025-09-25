@@ -29,7 +29,7 @@ function App() {
       {/* Main Scene */}
       {
         !showWarp &&
-        <HeroScene onPlanetClick={handlePlanetClick} />
+        <HeroScene onPlanetClick={handlePlanetClick} paused={Boolean(activeSection)} />
       }
 
       {/* Modal only after warp finishes */}

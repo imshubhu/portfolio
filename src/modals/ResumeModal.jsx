@@ -9,7 +9,7 @@ const ResumeModal = () => {
     setTimeout(() => {
       // Simulate download
       const link = document.createElement('a');
-      link.href = '/resume.pdf';
+      link.href = '/Shubham_Lohar_Resume.pdf';
       link.download = 'Shubham_Lohar_Resume.pdf';
       link.click();
       setLaunched(false);
@@ -42,7 +42,7 @@ const ResumeModal = () => {
           </button>
 
           <a
-            href="mailto:techshubhu@gamil.com?subject=Hiring%20Request"
+            href="mailto:techshubhu@gmail.com?subject=Hiring%20Request"
             className="!px-6 !py-2 border border-gray-600 hover:border-cyan-500 rounded transition flex items-center !gap-2"
           >
             📧 Email Directly

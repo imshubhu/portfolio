@@ -5,12 +5,13 @@ import SolarSystem from './SolarSystem';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
-const HeroScene = ({ onPlanetClick }) => {
+const HeroScene = ({ onPlanetClick, paused = false }) => {
     return (
         <div className="relative w-full h-screen bg-black">
 
             {/* Three.js Canvas */}
             <Canvas
+                dpr={[1, 1.75]}
                 camera={{
                     position: [0, 50, window.innerWidth > 768 ? 150 : 350],
                     fov: 60,
@@ -25,14 +26,14 @@ const HeroScene = ({ onPlanetClick }) => {
                 <Stars
                     radius={100}
                     depth={50}
-                    count={window.innerWidth < 768 ? 1000 : 5000}
+                    count={window.innerWidth < 768 ? 800 : 4000}
                     factor={4}
                     saturation={0}
                     fade
                     speed={1}
                 />
                 {/* Main 3D Scene */}
-                <SolarSystem onPlanetClick={onPlanetClick} />
+                <SolarSystem onPlanetClick={onPlanetClick} paused={paused} />
 
                 <Environment
                     preset="sunset"
@@ -43,7 +44,7 @@ const HeroScene = ({ onPlanetClick }) => {
                 <OrbitControls
                     enableZoom={true}
                     enablePan={false}
-                    enableRotate={true}
+                    enableRotate={!paused}
                     zoomSpeed={0.6}
                     rotateSpeed={0.8}
                     touches={{
@@ -62,11 +63,11 @@ const HeroScene = ({ onPlanetClick }) => {
             </Canvas>
 
             {/* UI Overlay (Title) */}
-            <div className="absolute w-full top-1/9 md:top-1/7 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10 pointer-events-auto">
-                <h1 className="text-2xl md:text-6xl font-bold text-cyan-300 mb-2 drop-shadow-lg">
+            <div className="absolute w-full top-8 md:top-16 left-1/2 -translate-x-1/2 text-center z-10 pointer-events-auto px-4">
+                <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold text-cyan-300 mb-1 md:mb-2 drop-shadow-lg">
                     Captain Shubham Lohar
                 </h1>
-                <p className="text-sm md:text-lg text-gray-300 drop-shadow">Full Stack Astronaut</p>
+                <p className="text-xs sm:text-sm md:text-lg text-gray-300 drop-shadow">Full Stack Astronaut</p>
             </div>
         </div>
     );

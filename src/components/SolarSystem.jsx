@@ -6,7 +6,7 @@ import Planet from './Planet';
 import * as THREE from 'three';
 import planets from '../data/planets';
 
-export default function SolarSystem({ onPlanetClick }) {
+export default function SolarSystem({ onPlanetClick, paused = false }) {
   // Handle planet click
   const handlePlanetClick = (planet) => {
     onPlanetClick(planet.id);
@@ -19,6 +19,7 @@ export default function SolarSystem({ onPlanetClick }) {
         <Planet
           key={planet.id}
           {...planet}
+          paused={paused}
           onPlanetClick={() => handlePlanetClick(planet)}
         />
       ))}
